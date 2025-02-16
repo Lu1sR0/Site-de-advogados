@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/60 rounded-full hover:bg-gold transition-colors;
+  }
+
+  /* Garantir tamanho consistente para imagens da equipe */
+  .team-image-container {
+    @apply relative w-full rounded-lg shadow-lg overflow-hidden;
+    padding-bottom: 100%; /* Creates a 1:1 aspect ratio */
+  }
+
+  .team-image {
+    @apply absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105;
+  }
+}
+
+@layer components {
+  .hero-button {
+    @apply relative overflow-hidden px-8 py-3 rounded-md transition-all duration-300 font-medium;
+  }
+
+  .hero-button-primary {
+    @apply bg-gold text-white hover:bg-gold-light shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .hero-button-secondary {
+    @apply border-2 border-white/80 text-white hover:bg-white/10 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .nav-link {
+    @apply relative text-neutral-600 hover:text-gold transition-colors duration-200 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-gold after:left-0 after:bottom-0 after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left;
+  }
+
+  .footer-link {
+    @apply text-neutral-400 hover:text-gold transition-colors duration-200;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-playfair font-bold text-neutral-850 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-neutral-600 max-w-2xl mx-auto mb-12;
+  }
+}
